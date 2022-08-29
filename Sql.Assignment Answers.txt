@@ -1,0 +1,88 @@
+ASSIGNMENT 1
+
+1.Desgin the above database with following table by applying Primary key and Foreign key
+
+->Table done with Primary key and Foreign key.
+
+2.Insert Records in all tables 
+
+->Records Inserted.
+
+3.In Customer table FirstName Attribute should not accept null value
+
+->Done
+
+4.In Order table OrderDate should not accept null value
+
+->Done
+
+5.Display all customer details
+
+->select * from Customer
+
+6.write a query to display Country whose name starts with A or I
+
+->select Country from Customer
+where Country Like 'A%' or Country like 'I%'
+
+7 .write a query to display whose name of customer whose third character is i
+
+->select Firstname, Lastname from Customer
+where FirstName like '__i%'
+
+
+
+ASSIGNMENT 2
+
+1.Display the details from Customer table who is from country Germany
+
+-->select * from Customer
+where Country Like 'Germany'
+
+2.Display the  fullname of the employee
+
+-->select FirstName, Lastname from Customer
+
+4.Display the customer details whoes name holds second letter as U
+
+-->select FirstName, Lastname from Customer
+where FirstName like '_u%'
+
+5.Select order Details where unit price is greater than 10 and less than 20
+
+-->select * from Customer
+join [Order] on [order].customerId=customer.Id
+join OrderItem on OrderItem.OrderId=[order].Id
+join Product on Product.Id=orderItem.ProductId
+where OrderItem.UnitPrice>10 and OrderItem.UnitPrice<20
+
+9.Print the average quantity ordered for every product
+
+-->SELECT
+(SELECT ProductName FROM Product
+WHERE Product.Id = OrderItem.ProductId) AS Product_Name,
+AVG(Quantity) AS Average_Quantity
+FROM OrderItem GROUP BY ProductId
+
+
+
+ASSIGNMENT 3
+
+1.write a query to display the orders placed by customer with phone number 030-0074321
+
+-->select * from Customer
+join [Order] on [order].customerId=customer.Id
+join OrderItem on OrderItem.OrderId=[order].Id
+join Product on Product.Id=orderItem.ProductId
+where customer.Phone = '0300074321'
+
+3.Display the orders placed by customers not in London
+
+-->select FirstName , LastName from Customer
+join [Order] on [Order].CustomerId = customer.Id
+where Country<>'London'
+
+
+
+ASSIGNMENT 4
+
